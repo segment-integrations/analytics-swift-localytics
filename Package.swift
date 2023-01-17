@@ -4,8 +4,9 @@
 import PackageDescription
 
 let package = Package(
-    name: "SegmentDestination",
+    name: "SegmentLocalytics",
     platforms: [
+        .macOS("10.15"),
         .iOS("13.0"),
         .tvOS("11.0"),
         .watchOS("7.1")
@@ -13,8 +14,8 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "SegmentDestination",
-            targets: ["SegmentDestination"]),
+            name: "SegmentLocalytics",
+            targets: ["SegmentLocalytics"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -29,8 +30,12 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "SegmentDestination",
-            dependencies: ["Segment"]),
+            name: "SegmentLocalytics",
+            dependencies: ["Segment", "Localytics"]),
+        .binaryTarget(
+            name: "Localytics",
+            path: "Frameworks/Localytics.xcframework"
+        ),
         
         // TESTS ARE HANDLED VIA THE EXAMPLE APP.
     ]
