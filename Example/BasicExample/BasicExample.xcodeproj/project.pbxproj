@@ -15,6 +15,7 @@
 		46EDC71127C6B8D200B870D7 /* BasicExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC71027C6B8D200B870D7 /* BasicExampleUITests.swift */; };
 		46EDC71327C6B8D200B870D7 /* BasicExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC71227C6B8D200B870D7 /* BasicExampleUITestsLaunchTests.swift */; };
 		46EDC72127C6B92C00B870D7 /* Segment in Frameworks */ = {isa = PBXBuildFile; productRef = 46EDC72027C6B92C00B870D7 /* Segment */; };
+		EA6C92DF2971619B0003450B /* SegmentLocalytics in Frameworks */ = {isa = PBXBuildFile; productRef = EA6C92DE2971619B0003450B /* SegmentLocalytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		46EDC70C27C6B8D200B870D7 /* BasicExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasicExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46EDC71027C6B8D200B870D7 /* BasicExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicExampleUITests.swift; sourceTree = "<group>"; };
 		46EDC71227C6B8D200B870D7 /* BasicExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EA6C92DC297161840003450B /* analytics-swift-integrations-localytics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "analytics-swift-integrations-localytics"; path = ../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46EDC72127C6B92C00B870D7 /* Segment in Frameworks */,
+				EA6C92DF2971619B0003450B /* SegmentLocalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,10 +79,12 @@
 		46EDC6E927C6B8D100B870D7 = {
 			isa = PBXGroup;
 			children = (
+				EA6C92DB297161840003450B /* Packages */,
 				46EDC6F427C6B8D100B870D7 /* BasicExample */,
 				46EDC70527C6B8D200B870D7 /* BasicExampleTests */,
 				46EDC70F27C6B8D200B870D7 /* BasicExampleUITests */,
 				46EDC6F327C6B8D100B870D7 /* Products */,
+				EA6C92DD2971619B0003450B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +134,21 @@
 			path = BasicExampleUITests;
 			sourceTree = "<group>";
 		};
+		EA6C92DB297161840003450B /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				EA6C92DC297161840003450B /* analytics-swift-integrations-localytics */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		EA6C92DD2971619B0003450B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,6 +167,7 @@
 			name = BasicExample;
 			packageProductDependencies = (
 				46EDC72027C6B92C00B870D7 /* Segment */,
+				EA6C92DE2971619B0003450B /* SegmentLocalytics */,
 			);
 			productName = BasicExample;
 			productReference = 46EDC6F227C6B8D100B870D7 /* BasicExample.app */;
@@ -604,6 +625,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 46EDC71F27C6B92C00B870D7 /* XCRemoteSwiftPackageReference "analytics-swift" */;
 			productName = Segment;
+		};
+		EA6C92DE2971619B0003450B /* SegmentLocalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SegmentLocalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
