@@ -34,8 +34,7 @@ public class LocalyticsDestination: DestinationPlugin {
     
     public let timeline = Timeline()
     public let type = PluginType.destination
-    // TODO: Fill this out with your settings key that matches your destination in the Segment App
-    public let key = "Example"
+    public let key = "Localytics"
     public var analytics: Analytics? = nil
     
     private var localyticsSettings: LocalyticsSettings?
@@ -53,12 +52,15 @@ public class LocalyticsDestination: DestinationPlugin {
         localyticsSettings = tempSettings
         defaultSettings = settings
         
-        // TODO: initialize partner SDK here
-        Localytics.autoIntegrate(tempSettings.apiKey, withLocalyticsOptions:[
-            LOCALYTICS_WIFI_UPLOAD_INTERVAL_SECONDS: 5,
-            LOCALYTICS_GREAT_NETWORK_UPLOAD_INTERVAL_SECONDS: 10,
-            LOCALYTICS_DECENT_NETWORK_UPLOAD_INTERVAL_SECONDS: 30,
-            LOCALYTICS_BAD_NETWORK_UPLOAD_INTERVAL_SECONDS: 90])
+        if let sessionTimeoutInterval = settings.integrationSettings(forKey: key)?["sessionTimeoutInterval"] as? NSNumber {
+            if sessionTimeoutInterval.intValue > 0 {
+                Localytics.setOptions(["session_timeout": sessionTimeoutInterval])
+            } else {
+                Localytics.setOptions(["session_timeout": NSNumber(30)])
+            }
+        }
+        
+        Localytics.autoIntegrate(tempSettings.apiKey, withLocalyticsOptions: nil)
     }
     
     public func identify(event: IdentifyEvent) -> IdentifyEvent? {
@@ -67,7 +69,7 @@ public class LocalyticsDestination: DestinationPlugin {
             Localytics.setCustomerId(userID)
             analytics?.log(message: "Localytics Identified Id - \(userID)")
         }
-        //We also can set email and name of customer
+        // We also can set email and name of customer
         if let userDetails = event.traits?.dictionaryValue {
             let email = userDetails["email"] as? String ?? ""
             Localytics.setCustomerEmail(email)
@@ -94,7 +96,7 @@ public class LocalyticsDestination: DestinationPlugin {
             
             // Allow users to specify whether attributes should be Org or Application Scoped.
             var attributeScope: LLProfileScope!
-            if setOrganizationScope() {
+            if localyticsSettings?.setOrganizationScope == true {
                 attributeScope = LLProfileScope.organization
             } else {
                 attributeScope = LLProfileScope.application
@@ -112,7 +114,7 @@ public class LocalyticsDestination: DestinationPlugin {
     }
     
     public func track(event: TrackEvent) -> TrackEvent? {
-                        
+        
         DispatchQueue.main.async {
             
             let isBackgrounded = UIApplication.shared.applicationState != UIApplication.State.active
@@ -167,12 +169,7 @@ private extension LocalyticsDestination {
             }
         }
     }
-    
-    func setOrganizationScope()-> Bool {
-        debugPrint("organizationScope - ", defaultSettings?.integrationSettings(forKey: key)?["setOrganizationScope"] as? Bool ?? false)
-        return defaultSettings?.integrationSettings(forKey: key)?["setOrganizationScope"] as? Bool ?? false
-    }
-    
+  
     func extractRevenue(dictionary: [String: Any], revenueKey: String)-> NSNumber? {
         var revenueProperty = ""
         for key in dictionary.keys {
@@ -203,6 +200,7 @@ extension LocalyticsDestination: VersionedPlugin {
 // Example of what settings may look like.
 private struct LocalyticsSettings: Codable {
     let apiKey: String
+    let setOrganizationScope: Bool
 }
 
 //Mark:- Callbacks for app state change
