@@ -1,23 +1,25 @@
 {
-  "pins" : [
-    {
-      "identity" : "analytics-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/segmentio/analytics-swift",
-      "state" : {
-        "branch" : "main",
-        "revision" : "a1965f8403c7f59801ac19996a6281d4441b4215"
+  "object": {
+    "pins": [
+      {
+        "package": "Segment",
+        "repositoryURL": "https://github.com/segmentio/analytics-swift",
+        "state": {
+          "branch": "main",
+          "revision": "2c80798c09e08171452b6df1d8e7e4e2104d90d9",
+          "version": null
+        }
+      },
+      {
+        "package": "Sovran",
+        "repositoryURL": "https://github.com/segmentio/Sovran-Swift.git",
+        "state": {
+          "branch": null,
+          "revision": "944c17d7c46bd95fc37f09136cabd172be5b413b",
+          "version": "1.0.3"
+        }
       }
-    },
-    {
-      "identity" : "sovran-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/segmentio/Sovran-Swift.git",
-      "state" : {
-        "revision" : "944c17d7c46bd95fc37f09136cabd172be5b413b",
-        "version" : "1.0.3"
-      }
-    }
-  ],
-  "version" : 2
+    ]
+  },
+  "version": 1
 }
