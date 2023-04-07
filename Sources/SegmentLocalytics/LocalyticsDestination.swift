@@ -30,6 +30,11 @@ import Foundation
 import Segment
 import Localytics
 
+@objc(SEGLocalyticsDestination)
+public class ObjCSegmentLocalytics: NSObject, ObjCDestination, ObjCDestinationShim {
+    public func instance() -> DestinationPlugin { return LocalyticsDestination() }
+}
+
 public class LocalyticsDestination: DestinationPlugin {
     
     public let timeline = Timeline()
