@@ -72,29 +72,24 @@ public class LocalyticsDestination: DestinationPlugin {
         
         if let userID = event.userId {
             Localytics.setCustomerId(userID)
-            //analytics?.log(message: "Localytics Identified Id - \(userID)")
         }
         // We also can set email and name of customer
         if let userDetails = event.traits?.dictionaryValue {
             let email = userDetails["email"] as? String ?? ""
             Localytics.setCustomerEmail(email)
             Localytics.setValue(email, forIdentifier: "email")
-            //analytics?.log(message: "Localytics Identified email - \(email)")
             
             if let name = userDetails["name"] as? String {
                 Localytics.setCustomerFullName(name)
                 Localytics.setValue(name, forIdentifier: "customer_name")
-                //analytics?.log(message: "Localytics Identified name - \(name)")
             }
             
             if let firstname = userDetails["first_name"] as? String {
                 Localytics.setCustomerFirstName(firstname)
-                //analytics?.log(message: "Localytics Identified firstname - \(firstname)")
             }
             
             if let lastName = userDetails["last_name"] as? String {
                 Localytics.setCustomerLastName(lastName)
-                //analytics?.log(message: "Localytics Identified lastName - \(lastName)")
             }
             
             setCustomDimensions(traits: userDetails)
