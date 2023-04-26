@@ -31,8 +31,8 @@ import Segment
 import Localytics
 
 @objc(SEGLocalyticsDestination)
-public class ObjCSegmentLocalytics: NSObject, ObjCDestination, ObjCDestinationShim {
-    public func instance() -> DestinationPlugin { return LocalyticsDestination() }
+public class ObjCSegmentLocalytics: NSObject, ObjCPlugin, ObjCPluginShim  {
+    public func instance() -> EventPlugin { return LocalyticsDestination() }
 }
 
 public class LocalyticsDestination: DestinationPlugin {
