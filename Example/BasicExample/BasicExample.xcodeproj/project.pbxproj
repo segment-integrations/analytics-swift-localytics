@@ -46,7 +46,7 @@
 		46EDC70C27C6B8D200B870D7 /* BasicExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasicExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46EDC71027C6B8D200B870D7 /* BasicExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicExampleUITests.swift; sourceTree = "<group>"; };
 		46EDC71227C6B8D200B870D7 /* BasicExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		EA6C92DC297161840003450B /* analytics-swift-integrations-localytics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "analytics-swift-integrations-localytics"; path = ../..; sourceTree = "<group>"; };
+		EA6C92DC297161840003450B /* analytics-swift-localytics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "analytics-swift-localytics"; path = ../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 		EA6C92DB297161840003450B /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				EA6C92DC297161840003450B /* analytics-swift-integrations-localytics */,
+				EA6C92DC297161840003450B /* analytics-swift-localytics */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
