@@ -1,6 +1,6 @@
 # Analytics-Swift Localytics
 
-Add Localytics Device Mode support to your applications via this plugin for [Analytics-Swift](https://github.com/segmentio/analytics-swift)
+Add `Localytics` Device Mode support to your applications via this plugin for [Analytics-Swift](https://github.com/segmentio/analytics-swift)
 
 ## Adding the dependency
 
